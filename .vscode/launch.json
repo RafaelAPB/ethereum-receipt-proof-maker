@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(OSX) Launch",
+            "name": "Launch (DOES NOT COMPILE)",
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceRoot}/target/debug/rusty-receipt-proof-maker",
