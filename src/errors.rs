@@ -9,7 +9,7 @@ pub enum AppError {
     ReqwestError(reqwest::Error),
     SerdeJsonError(serde_json::Error),
     SetLoggerError(log::SetLoggerError),
-    TermLogError(simplelog::TermLogError),
+    TermLogError(String),
 }
 
 impl fmt::Display for AppError {
@@ -64,11 +64,5 @@ impl From<serde_json::Error> for AppError {
 impl From<log::SetLoggerError> for AppError {
     fn from(e: log::SetLoggerError) -> AppError {
         AppError::SetLoggerError(e)
-    }
-}
-
-impl From<simplelog::TermLogError> for AppError {
-    fn from(e: simplelog::TermLogError) -> AppError {
-        AppError::TermLogError(e)
     }
 }

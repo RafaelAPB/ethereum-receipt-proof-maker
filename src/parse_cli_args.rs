@@ -22,6 +22,7 @@ pub fn parse_cli_args() -> Result<CliArgs> {
                 },
                 Config::default(),
                 TerminalMode::Mixed,
+                ColorChoice::Auto,
             )?;
             info!("✔ CLI Args parsed successfully!");
             info!("✔ Verbose mode: {}", cli_args.flag_verbose);
