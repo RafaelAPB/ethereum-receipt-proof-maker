@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(OSX) Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/debug/rusty-receipt-proof-maker",
+            "args": [
+                "0x0db4b181d7b9494b9d243232d0a1a0e6e889f609871dfbed35d422eb29300646",
+                "-v"
+            ],
+            "cwd": "${workspaceRoot}",
+        }
+    ]
+}
