@@ -27,7 +27,7 @@ pub struct ReceiptRpcResponse {
 
 #[derive(Clone, Debug, Deserialize)]
 pub struct Block {
-    pub author: Address,
+    // pub author: Address,
     pub difficulty: U256,
     pub extra_data: Bytes,
     pub gas_limit: U256,
@@ -40,7 +40,7 @@ pub struct Block {
     pub number: U256,
     pub parent_hash: H256,
     pub receipts_root: H256,
-    pub seal_fields: (Bytes, U256),
+    // pub seal_fields: (Bytes, U256),
     pub sha3_uncles: H256,
     pub size: U256,
     pub state_root: H256,
@@ -101,7 +101,7 @@ impl Encodable for Log {
 #[allow(non_snake_case)]
 #[derive(Debug, Deserialize)]
 pub struct BlockJson {
-    pub author: String,
+    // pub author: String,
     pub difficulty: String,
     pub extraData: String,
     pub gasLimit: String,
@@ -114,7 +114,7 @@ pub struct BlockJson {
     pub number: String,
     pub parentHash: String,
     pub receiptsRoot: String,
-    pub sealFields: (String, String),
+    // pub sealFields: (String, String),
     pub sha3Uncles: String,
     pub size: String,
     pub stateRoot: String,
@@ -147,7 +147,7 @@ pub struct ReceiptJson {
 pub struct LogJson {
     pub data: String,
     pub removed: bool,
-    pub r#type: String,
+    //pub r#type: String,
     pub address: String,
     pub logIndex: String,
     pub blockHash: String,
