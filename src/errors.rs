@@ -9,7 +9,7 @@ pub enum AppError {
     ReqwestError(reqwest::Error),
     SerdeJsonError(serde_json::Error),
     SetLoggerError(log::SetLoggerError),
-    TermLogError(String),
+    //TermLogError(TODO SPECIFIC TERM LOG ERROR),
 }
 
 impl fmt::Display for AppError {
@@ -20,7 +20,7 @@ impl fmt::Display for AppError {
             AppError::IOError(ref e) => format!("✘ I/O Error!\n✘ {}", e),
             AppError::NoneError(ref e) => format!("✘ Nothing to unwrap!\n✘ {:?}", e),
             AppError::SerdeJsonError(ref e) => format!("✘ Serde-Json Error!\n✘ {}", e),
-            AppError::TermLogError(ref e) => format!("✘ Terminal logger error: {}", e),
+            //AppError::TermLogError(ref e) => format!("✘ Terminal logger error: {}", e),
             AppError::SetLoggerError(ref e) => format!("✘ Error setting up logger!\n✘ {}", e),
             AppError::ReqwestError(ref e) => format!(
                 "\n✘ HTTP Reqwest Error!\n✘ {}\n{}",
@@ -66,3 +66,5 @@ impl From<log::SetLoggerError> for AppError {
         AppError::SetLoggerError(e)
     }
 }
+
+// TODO impl from terminal error

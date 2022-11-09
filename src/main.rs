@@ -53,6 +53,7 @@ use crate::validate_cli_args::validate_cli_args;
 fn main() {
     match parse_cli_args()
         .and_then(|state| {
+            info!("State: {:?}", state);
             validate_cli_args(state)
         })
         .and_then(initialize_state_from_cli_args)
