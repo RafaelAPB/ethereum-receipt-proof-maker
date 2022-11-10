@@ -3,7 +3,7 @@ use crate::{
     utils::dot_env_file_exists,
 };
 
-fn maybe_run_dot_env() -> Result<()> {
+pub fn maybe_run_dot_env() -> Result<()> {
     match dot_env_file_exists() {
         true => match dotenv::dotenv() {
             Ok(_) => Ok(()),
@@ -19,6 +19,7 @@ fn get_endpoint_from_env_vars() -> Result<String> {
         Err(_) => DEFAULT_ENDPOINT.to_string(),
     })
 }
+
 
 pub fn get_endpoint_and_set_in_state(state: State) -> Result<State> {
     info!("✔ Getting RPC endpoint from environment variables...");

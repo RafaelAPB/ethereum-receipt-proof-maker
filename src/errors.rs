@@ -1,4 +1,4 @@
-use std::{error::Error, fmt};
+use std::{error::Error, fmt, env::VarError};
 
 #[derive(Debug)]
 pub enum AppError {
@@ -9,6 +9,7 @@ pub enum AppError {
     ReqwestError(reqwest::Error),
     SerdeJsonError(serde_json::Error),
     SetLoggerError(log::SetLoggerError),
+    NoJwt(VarError),
     //TermLogError(TODO SPECIFIC TERM LOG ERROR),
 }
 
@@ -26,6 +27,7 @@ impl fmt::Display for AppError {
                 "\n✘ HTTP Reqwest Error!\n✘ {}\n{}",
                 e, "✘ Please check your node & port settings and retry.\n"
             ),
+            AppError::NoJwt(ref e) => format!("✘ Authorization Error!\n✘ {}", e),
         };
         f.write_fmt(format_args!("{}", msg))
     }

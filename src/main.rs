@@ -27,6 +27,7 @@ mod usage_info;
 mod utils;
 mod validate_cli_args;
 mod validate_tx_hash;
+mod get_jwt;
 
 #[macro_use]
 extern crate log;

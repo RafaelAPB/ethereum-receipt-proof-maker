@@ -3,15 +3,29 @@ use crate::{
     errors::AppError,
     types::{BlockRpcResponse, ReceiptRpcResponse, Result},
 };
-use serde_json::Value as Json;
+use crate::get_jwt::get_jwt_from_env_vars;
+use serde_json::{Value as Json};
 use std::time::Duration;
 
 pub fn make_rpc_call(endpoint: &str, json: Json) -> Result<reqwest::Response> {
+    
     let client = reqwest::Client::builder()
-        .timeout(Duration::from_secs(REQWEST_TIMEOUT_TIME))
-        .build()?;
-    Ok(client.post(endpoint).json(&json).send()?)
+    .timeout(Duration::from_secs(REQWEST_TIMEOUT_TIME))
+    .build()?;
+    
+    match get_jwt_from_env_vars()   {
+        Ok(token) => {
+            info!("with token");
+            Ok(client.post(endpoint).bearer_auth(token).json(&json).send()?)
+        },
+        Err(e) => {
+            info!("{:?}", e);
+            Ok(client.post(endpoint).json(&json).send()?)
+        },
+    }
 }
+
+
 
 pub fn get_response_text(mut res: reqwest::Response) -> Result<String> {
     let res_text = res.text()?;
