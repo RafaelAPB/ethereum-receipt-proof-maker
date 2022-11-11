@@ -901,8 +901,6 @@ mod tests {
 
     #[test]
     fn should_put_sample_receipts_1_in_trie_correctly() {
-        //use simple_logger;
-        //simple_logger::init().unwrap();
         let index = 0;
         let receipts = get_sample_receipts(
             SAMPLE_RECEIPT_JSONS_1_PATH.to_string(),
@@ -917,8 +915,6 @@ mod tests {
 
     #[test]
     fn should_put_sample_receipts_2_in_trie_correctly() {
-        //use simple_logger;
-        //simple_logger::init().unwrap();
         let index = 0;
         let receipts = get_sample_receipts(
             SAMPLE_RECEIPT_JSONS_2_PATH.to_string(),
@@ -933,8 +929,6 @@ mod tests {
 
     #[test]
     fn should_put_sample_receipts_3_in_trie_correctly() {
-        //use simple_logger;
-        //simple_logger::init().unwrap();
         let index = 0;
         let receipts = get_sample_receipts(
             SAMPLE_RECEIPT_JSONS_3_PATH.to_string(),
