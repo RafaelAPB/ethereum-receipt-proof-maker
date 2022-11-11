@@ -15,11 +15,12 @@ pub fn make_rpc_call(endpoint: &str, json: Json) -> Result<reqwest::Response> {
     
     match get_jwt_from_env_vars()   {
         Ok(token) => {
-            info!("with token");
+            debug!("with token");
+            debug!("Calling {:?}", json);
             Ok(client.post(endpoint).bearer_auth(token).json(&json).send()?)
         },
         Err(e) => {
-            info!("{:?}", e);
+            debug!("{:?}", e);
             Ok(client.post(endpoint).json(&json).send()?)
         },
     }
